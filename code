@@ -1,0 +1,51 @@
+import java.util.*;
+public class KaprekarNumbers {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc=new Scanner(System.in);
+		int p=sc.nextInt();
+		int q=sc.nextInt();
+		long square;
+		int length;
+		String s;
+		String left;
+		String right;
+		int leftnum;
+		int rightnum;
+		ArrayList<Integer> A=new ArrayList<Integer>();
+		//int a={1,9,45,55,99,297,703,999,2223,2728,4950,5050,7272,7777,9999,17344,22222,77778,82656,95121,99999};
+		//take care of 1,9
+		for(int i=p;i<=q;i++)
+		{
+			if(i==1)
+				A.add(i);
+			else if(i>3){
+				length=0;
+			length=Integer.toString(i).length();
+			square=0;
+			square=i*i;  //later replace it by long
+			s=Long.toString(square);
+			//s=Integer.toString(square);
+			left=s.substring(0,(s.length()-length));
+			right=s.substring((s.length()-length),s.length());
+			leftnum=0;
+			leftnum=Integer.parseInt(left);
+			rightnum=0;
+			rightnum=Integer.parseInt(right);
+			if(leftnum+rightnum==i)
+				A.add(i);
+			}
+		}
+		if(A.size()==0)
+			System.out.println("INVALID RANGE");
+		else{
+		for(int i=0;i<A.size();i++)
+			System.out.print(A.get(i)+" ");
+	}}
+
+}
